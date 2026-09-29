@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miga Dorada | Panadería & Pastelería</title>
+    <meta name="description" content="Miga Dorada - Panadería y pastelería artesanal.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#inicio" class="logo">🥐 Miga Dorada</a>
+
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+
+        <button class="cart-button" onclick="abrirCarrito()">
+            🛒 Carrito <span id="cantidadCarrito">0</span>
+        </button>
+    </nav>
+</header>
+
+<main>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <p class="mini-title">PANADERÍA & PASTELERÍA ARTESANAL</p>
+
+            <h1>El sabor de lo<br><span>recién horneado.</span></h1>
+
+            <p>
+                Panes, facturas y pastelería preparados todos los días
+                con ingredientes seleccionados.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#productos" class="btn-primary">Ver productos</a>
+                <a href="#contacto" class="btn-secondary">Visitanos</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="bread-circle">🥖</div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+        <div>
+            <span>🌾</span>
+            <h3>Ingredientes seleccionados</h3>
+            <p>Elegimos materias primas de calidad.</p>
+        </div>
+
+        <div>
+            <span>🔥</span>
+            <h3>Horneado diariamente</h3>
+            <p>Productos frescos todos los días.</p>
+        </div>
+
+        <div>
+            <span>🤎</span>
+            <h3>Hecho con dedicación</h3>
+            <p>Recetas tradicionales y elaboración artesanal.</p>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="productos" id="productos">
+
+        <div class="section-header">
+            <p>NUESTRO MENÚ</p>
+            <h2>Elegí tus favoritos</h2>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro activo" onclick="filtrar('todos', this)">Todos</button>
+            <button class="filtro" onclick="filtrar('panes', this)">Panes</button>
+            <button class="filtro" onclick="filtrar('facturas', this)">Facturas</button>
+            <button class="filtro" onclick="filtrar('pasteleria', this)">Pastelería</button>
+            <button class="filtro" onclick="filtrar('salado', this)">Salado</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+
+        <div class="nosotros-icon">🥐</div>
+
+        <div class="nosotros-texto">
+            <p class="mini-title">NUESTRA HISTORIA</p>
+
+            <h2>Mucho más que una panadería</h2>
+
+            <p>
+                En Miga Dorada creemos que pocas cosas se comparan con
+                el aroma del pan recién salido del horno.
+            </p>
+
+            <p>
+                Cada mañana preparamos nuestros productos buscando combinar
+                recetas tradicionales con sabores actuales.
+            </p>
+
+            <p>
+                Nuestro objetivo es simple: ofrecer algo rico y fresco
+                para acompañar cada momento del día.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+
+        <div class="section-header">
+            <p>VENÍ A CONOCERNOS</p>
+            <h2>Información del local</h2>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <span>📍</span>
+                <h3>Dirección</h3>
+                <p>Av. Principal 1234</p>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+
+            <div class="contact-card">
+                <span>🕐</span>
+                <h3>Horarios</h3>
+                <p>Lunes a sábado</p>
+                <strong>7:00 - 20:00</strong>
+                <p>Domingos</p>
+                <strong>8:00 - 13:00</strong>
+            </div>
+
+            <div class="contact-card">
+                <span>📱</span>
+                <h3>Contacto</h3>
+                <p>WhatsApp</p>
+                <strong>+54 9 11 0000-0000</strong>
+                <p>hola@migadorada.com</p>
+            </div>
+
+        </div>
+
+        <p class="demo-warning">
+            * Dirección, teléfono, correo y precios son datos de demostración.
+        </p>
+
+    </section>
+
+</main>
+
+<!-- CARRITO -->
+<div class="overlay" id="overlay" onclick="cerrarCarrito()"></div>
+
+<aside class="carrito" id="carrito">
+
+    <div class="carrito-header">
+        <h2>Tu pedido 🥐</h2>
+        <button onclick="cerrarCarrito()">✕</button>
+    </div>
+
+    <div id="carritoProductos"></div>
+
+    <div class="carrito-footer">
+        <div class="total">
+            <span>Total</span>
+            <strong id="total">$0</strong>
+        </div>
+
+        <button class="btn-pedido" onclick="hacerPedido()">
+            Pedir por WhatsApp
+        </button>
+
+        <small>
+            Modo demostración: configurá el número real del negocio en script.js.
+        </small>
+    </div>
+
+</aside>
+
+<footer>
+    <div>
+        <h2>🥐 Miga Dorada</h2>
+        <p>Panadería & Pastelería</p>
+    </div>
+
+    <p>© 2026 Miga Dorada. Sitio demostrativo.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
